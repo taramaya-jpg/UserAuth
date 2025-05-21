@@ -4,8 +4,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 require('dotenv').config();
 const { createUserTable } = require('./Models/userModel');
-
-
+const { createFoodTable } = require('./models/foodModel');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -33,16 +32,12 @@ const userRoutes = require('./Routes/userRoutes');
 app.use('/', authRoutes);
 app.use('/', adminRoutes);
 app.use('/user', userRoutes);
-const { createFoodTable } = require('./models/foodModel');
-createFoodTable();
 
 // Schema creation
-createUserTable(); // Call this after setting up middlewares
-
-
+createUserTable();
+createFoodTable(); // Call after user table creation if order matters
 
 // Server
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
-
