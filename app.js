@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 require('dotenv').config();
 const { createUserTable } = require('./Models/userModel');
-const { createFoodTable } = require('./models/foodModel');
+const { createFoodTable } = require('./Models/foodModel');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
