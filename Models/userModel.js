@@ -1,4 +1,4 @@
-const db = require('../config/db');
+const db = require('../Config/db');
 
 // Create user table if not exists
 const createUserTable = async () => {
